@@ -10,6 +10,8 @@ function fn4() {
 function fn3() {
     setTimeout(() => fn4(), 3000)
     console.log('fn3')
+
+    
 }
 
 function fn2() {
