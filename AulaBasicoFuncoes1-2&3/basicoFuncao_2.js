@@ -1,3 +1,6 @@
+//FUNÇÃO COMO PARAMETRO
+
+
 function bomDia(){
     console.log('Bom dia!')
 }
