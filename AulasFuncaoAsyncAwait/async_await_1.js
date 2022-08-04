@@ -46,8 +46,23 @@ waitFor()
         await waitFor(1500)
         console.log('Async/Await 3...')
         console.log(`Async/Await ${valor + 3}`)
+        
+        return valor + 3
 
     }
 
+    //const v = await executeAwait() n pode ser chamada, o await so pode ser usada dentro de uma func async
+
+const executeTrue = async () => {
+
+    const valor = await executeAwait()
+    console.log('=======ExecuteTrue======')
+    console.log(valor)
+    console.log('=======ExecuteTrue======')
+}
+executeAwait().then(v => console.log(v))
+
+    
+executeTrue()
 executeNoAwait()
 executeAwait()
