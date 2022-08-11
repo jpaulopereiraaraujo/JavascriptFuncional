@@ -24,9 +24,29 @@ function Produto(idProduto, nome, preco, desconto = 0.10) {
 
 }
 
-Produto.prototype.log= function () {
-    
+Produto.prototype.log = function () {
+    console.log(`Nome ${this.nome} Preco: R$ ${this.preco}`)
 }
+
+//Definindo propriedades no objeto
+Object.defineProperty(Produto.prototype, 'desc', {
+    get: function () {
+        return this._desc
+    }, 
+    set: function (novoDesc) {
+        if(novoDesc >= 0 && novoDesc <=1) {
+            this._desc = novoDesc
+        }
+    }
+})
+
+Object.defineProperty(Produto.prototype, 'descString', {
+    get: function () {
+        return `${this._desc * 100}% de desconto`
+    }
+})
+
+
 //o this.variavel torna aquele atributo publico, tornando-o acessivel para fora da funcao
 //a varivel valorPrivado e apenas utilizada dentro da funcao produto n podendo ser acessada
 
@@ -43,3 +63,7 @@ console.log(p2.preco)
 console.log(p1.valorPrivado)
 console.log(p2.getFrase())
 console.log(p1.precoFinal())
+p1.log()
+p2.desc = 0.99
+console.log(p2.desc)
+console.log(p2.descString)
